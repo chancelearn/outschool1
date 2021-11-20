@@ -10,8 +10,6 @@
         window.onload = function () {
             var oDate = document.getElementById("outDate");
             var bDate = document.getElementById("inDate");
-            var id = document.getElementById("password");
-            var from1 = document.getElementById("test_form")
             function timeout() {
                 let now = new Date();
                 let year = now.getFullYear();
@@ -34,30 +32,36 @@
             }
             oDate.value = timeout();
             bDate.value = timein();
-            function submitEvent() {
-                if (id.value == "ztt") {
-                    return true;
-                    // form1.submit();
-                }else{
-                    return false;
+
+        }
+
+        function submitEvent() {
+            var id = document.getElementById("password");
+            var form1 = document.getElementById("test_form");
+                if (id.value == "ywh") {
+                    form1.action = "Lesson2 OutSchool3.html";
+                    form1.submit();
+                    // return true;
                 }
-                // if (id.value == "ywh") {
-                //     // form1.action = "Lesson2 OutSchool2.html";
-                //     // form1.submit();
-                //     return true;
-                // }
+                else if(id.value == "ztt"){
+                    form1.action = "Lesson2 OutSchool2.html";
+                    form1.submit();
+                }
+                else{
+                    document.write("<b>sorry, the password is wrong!</b>")
+                }
             }
             // oDate.onclick = function () {
             //     this.value = timeout();
             //     bDate.value = timein();
             // this.select();
             // };
-        }
     </script>
 </head>
 
 <body style="text-align: center;">
-    <form id="test_form" name="form1" action = "Lesson2 OutSchool2.html" method="get" onsubmit="return checkForm()">
+    <!-- <form id="test_form" name="form1" action = "Lesson2 OutSchool2.html" method="get" onsubmit="return checkForm()"> -->
+    <form id="test_form" name="form1"  method="get" >
         <h4>外出登记信息</h4>
         <table width="350" align="center">
             <!-- 第一行 -->
@@ -81,7 +85,8 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" value="提交">
+        <!-- <input type="submit" value="提交"> -->
+        <input type="button" value="提交" onclick="submitEvent()">
         <!-- onclick="submitEvent()" -->
     </form>
 </body>
